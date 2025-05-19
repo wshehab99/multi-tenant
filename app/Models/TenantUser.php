@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class TenantUser extends Model
 {
     protected $connection = 'tenant';
+    protected $table = 'users';
     protected $fillable = [
         'name',
         'email',

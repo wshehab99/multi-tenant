@@ -14,15 +14,15 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(
-            \Illuminate\Auth\EloquentUserProvider::class,
-            function ($app) {
-                return new \App\Providers\TenantUserProvider(
-                    $app['hash'],
-                    config('auth.providers.tenant_users.model')
-                );
-            }
-        );
+        // $this->app->singleton(
+        //     \Illuminate\Auth\EloquentUserProvider::class,
+        //     function ($app) {
+        //         return new \App\Providers\TenantUserProvider(
+        //             $app['hash'],
+        //             config('auth.providers.tenant_users.model')
+        //         );
+        //     }
+        // );
     }
 
     /**
@@ -30,11 +30,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        Auth::provider('tenant', function ($app, array $config) {
-            return new TenantUserProvider(
-                $app->make(Hasher::class),
-                $config['model'],
-            );
-        });
+        // Auth::provider('tenant', function ($app, array $config) {
+        //     return new TenantUserProvider(
+        //         $app->make(Hasher::class),
+        //         $config['model'],
+        //     );
+        // });
     }
 }

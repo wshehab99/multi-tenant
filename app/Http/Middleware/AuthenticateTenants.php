@@ -15,7 +15,7 @@ class AuthenticateTenants
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!auth('tenant_users')) {
+        if (!auth('tenant')) {
             return redirect()->route('tenant.login');
         }
         return $next($request);
